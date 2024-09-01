@@ -1,4 +1,4 @@
-export default async function ProfileData(props: any) {
+export default async function ProfileData(props) {
   const url =
     "https://linkedin-api8.p.rapidapi.com/?username=" + props.username;
   const options = {
@@ -24,7 +24,7 @@ export default async function ProfileData(props: any) {
           {result.firstName} {result.lastName}
         </h1>
 
-        {result.fullPositions.map((position: any) => (
+        {result.fullPositions.map((position) => (
           <h1>
             {position.companyName} - {position.title}
           </h1>
