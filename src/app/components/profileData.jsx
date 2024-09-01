@@ -16,20 +16,22 @@ export default async function ProfileData(props) {
   } catch (error) {
     console.error(error);
   }
-  if (!result.fullPositions.map) return <p>Empty</p>;
-  return (
-    <>
-      <div className="flex flex-col bg-slate-400 rounded-2xl border-solid p-3 w-fit m-3 max-w-[300px]">
-        <h1 className="text-center font-bold">
-          {result.firstName} {result.lastName}
-        </h1>
-
-        {result.fullPositions?.map((position) => (
-          <h1>
-            {position.companyName} - {position.title}
+  if (result.fullPositions.map) {
+    return (
+      <>
+        <div className="flex flex-col bg-slate-400 rounded-2xl border-solid p-3 w-fit m-3 max-w-[300px]">
+          <h1 className="text-center font-bold">
+            {result.firstName} {result.lastName}
           </h1>
-        ))}
-      </div>
-    </>
-  );
+
+          {result.fullPositions?.map((position) => (
+            <h1>
+              {position.companyName} - {position.title}
+            </h1>
+          ))}
+        </div>
+      </>
+    );
+  }
+  return <p>Empty</p>;
 }
