@@ -1,5 +1,6 @@
 export default async function ProfileData(props: any) {
-  const url = "https://linkedin-api8.p.rapidapi.com/?username=" + props.username;
+  const url =
+    "https://linkedin-api8.p.rapidapi.com/?username=" + props.username;
   const options = {
     method: "GET",
     headers: {
@@ -15,18 +16,19 @@ export default async function ProfileData(props: any) {
   } catch (error) {
     console.error(error);
   }
-
+  if (!result.fullPositions.map) return <p>Empty</p>;
   return (
     <>
-    <div className="flex flex-col bg-slate-400 rounded-2xl border-solid p-3 w-fit m-3 max-w-[300px]">
-
-      <h1 className="text-center font-bold">{result.firstName} {result.lastName}</h1>
-
-      {result.fullPositions.map((position:any) => (
-          <h1>
-          {position.companyName} - {position.title}
+      <div className="flex flex-col bg-slate-400 rounded-2xl border-solid p-3 w-fit m-3 max-w-[300px]">
+        <h1 className="text-center font-bold">
+          {result.firstName} {result.lastName}
         </h1>
-      ))}
+
+        {result.fullPositions.map((position: any) => (
+          <h1>
+            {position.companyName} - {position.title}
+          </h1>
+        ))}
       </div>
     </>
   );
