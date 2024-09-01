@@ -10,7 +10,7 @@ export default async function Home() {
 
   
   return <main>
-    {usernames.map(username => (
+    {usernames?.map(username => (
       <ProfileData username={username}></ProfileData>
     )
     )}

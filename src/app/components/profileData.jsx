@@ -24,7 +24,7 @@ export default async function ProfileData(props) {
           {result.firstName} {result.lastName}
         </h1>
 
-        {result.fullPositions.map((position) => (
+        {result.fullPositions?.map((position) => (
           <h1>
             {position.companyName} - {position.title}
           </h1>
