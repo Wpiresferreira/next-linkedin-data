@@ -12,8 +12,8 @@ export default async function Home() {
   if (usernames) {
     return (
       <main>
-        {usernames.map((username) => (
-          <ProfileData username={username}></ProfileData>
+        {usernames.map((usern) => (
+          <ProfileData username={usern}></ProfileData>
         ))}
       </main>
     );

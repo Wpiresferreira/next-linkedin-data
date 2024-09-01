@@ -16,7 +16,7 @@ export default async function ProfileData(props) {
   } catch (error) {
     console.error(error);
   }
-  if (result.fullPositions.map) {
+  if (result.fullPositions) {
     return (
       <>
         <div className="flex flex-col bg-slate-400 rounded-2xl border-solid p-3 w-fit m-3 max-w-[300px]">
@@ -24,9 +24,9 @@ export default async function ProfileData(props) {
             {result.firstName} {result.lastName}
           </h1>
 
-          {result.fullPositions?.map((position) => (
+          {result.fullPositions?.map((p) => (
             <h1>
-              {position.companyName} - {position.title}
+              {p.companyName} - {p.title}
             </h1>
           ))}
         </div>
